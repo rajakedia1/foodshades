@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>Raja Kedia</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet href=css/layout1.css type=text/css>
+<link rel=stylesheet href=style/main.css type=text/css>
+<link rel=stylesheet href=style/slider.css type=text/css>
+<link rel=icon type=image/png href=img/logo.png>
+<link rel=stylesheet href=http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css>
+<script src=js/jquery.js></script>
+<script type=text/javascript src=js/jquery.cycle.all.js></script>
+<script type=text/javascript src=js/slider.js></script>
+    
+<script>$(document).ready(function(){$("a").on("click",function(d){if(this.hash!==""){d.preventDefault();var c=this.hash;$("html, body").animate({scrollTop:$(c).offset().top},900,function(){})}})});$(document).ready(function(){$("#flip").click(function(){$("#loginbox").slideToggle("fast")})});$(document).ready(function(){$("#flip2").click(function(){$("#loginbox").fadeToggle("fast")})});function chooseusername(){var e=document.getElementById("mine").value;var a=document.getElementById("email").value;var c=document.getElementById("sub").value;var d=document.getElementById("msg").value;if(d!=""){var b=new XMLHttpRequest();b.onreadystatechange=function(){if(b.readyState==4&&b.status==200){document.getElementById("state").innerHTML="Mail sent!"}};document.getElementById("state").innerHTML="Sending..";b.open("POST","sendmail.php?ch=1",true);b.setRequestHeader("Content-type","application/x-www-form-urlencoded");b.send("mine="+e+"&email="+a+"&subject="+c+"&msg="+d)}};</script>
+    
+</head>
+<body>
+    <header>
+    
+        <div class="title">FoodShades</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Suggestion</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <div class="top">
+    
+        <div class="left">
+                <div id="hero">
+                    <div id="pager"></div>
+                    <div id="next">&rang;</div>
+                    <div id="prev">&lang;</div>
+                    <div id="slider">
+                        <div class="items">
+                            <img src="slider/1.jpg">
+                        </div><!-- items -->
+                        <div class="items">
+                            <img src="slider/2.jpg">
+                        </div><!-- items -->
+                        
+                    </div><!-- slider -->
+                    
+                </div> <!-- end of hero -->
+        </div>
+        <div class="right">
+            <div class="form">
+                <label>Enter Your City:</label><br>
+                <select name="city" class="input" type="submit">
+                  <option value="Dhanbad">Dhanbad</option>
+                  <option value="Bokaro">Bokaro</option>
+                  <option value="Patna">Patna</option>
+                </select><br><br>
+                <input class="button"  name="button" type="submit" value="Go"><br><br>
+            </div>
+            <div class="city">
+              <ul>
+                <li><a href=# >ISM</a></li>
+                <li><a href=# >Steelgate</a></li>
+                <li><a href=# >Hirapur</a></li>
+              </ul>
+            </div>
+        </div>
+        
+    </div>
+    <div class="cont">
+    
+        <div class="offer">
+            <img src="slider/7.jpg"/>
+        </div>
+        <div class="offer">
+            <img src="slider/images.jpg"/>
+        </div>
+        <div class="detail">
+            <h3>About:</h3>
+            <p>The first VRP variant was introduced by Dantzig & Ramser (1959) in the form of Truck Dispatching Problem, also called Capacitated Vehicle Routing Problem (CVRP) in which a set of customers have positive demands, a fleet of vehicles having a limited capacity for supplying customers and the task was to find a set of minimum cost vehicle route so that all customers are serviced and sum of customer demands in any of the route should not exceeds the Vehicles Capacity. After that, there were lots of variation in the original problem and more number of constraints was imposed. It has been around 60 years since the problem came into the picture, but still it forms a big challenge for the Scientific Community.</p>
+        </div>
+        
+    </div>
+    
+    <footer >  <!-- footer starts -->
+        
+            
+            <div class="row footer-stuff">
+            
+                <div class="columns ">
+                    
+                    <p style="text-align:left;margin:2%;text-weight:none;"><strong style="color:yellow;align:center;font-size:20px;">Note:</strong><br>
+                      > No delivery charges on order above Rs. 100.<br>
+                      > Rs. 20 will be charged on delivery below Rs.100.<br>
+                      > Cash on Delivery available.<br>
+                      > Get your order within 30 minutes.<br></p>
+	  
+                    
+                </div>
+                
+                <div class="columns ">
+                
+                    <strong style="text-align:center;color: #e82175;padding-bottom: 10px;display: block;">Other Links</strong>
+                    <ul>
+                        <li><a href="#">Ranchi</a></li>
+                        <li><a href="#">Local Sites</a></li>
+                        <li><a href="#">Queries</a></li>
+                        <li><a href="#">Others</a></li>
+                        
+                    </ul>
+                    
+                </div>
+                
+                <div class="columns ">
+                    
+                    <div class="set3" style="margin: auto;">
+            
+                        <b style="display:block;margin-bottom:10px; text-align: center;">Follow Us:</b>
+                      <div style="text-align: center;" class="menu2" >
+
+                        <a href="twitter.com"><span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x" style="color:#00C3FC;" ></i>
+                          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+
+                        <a href="facebook.com"><span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x" style="color:#345AA9;"></i>
+                          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+
+                        <a href="linkedin.com"><span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x" style="color:#0079B8;"></i>
+                          <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+
+                        <a href="google+.com"><span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x" style="color:#EC4D29;"></i>
+                          <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                      </div>
+                  </div>
+                    <br>
+                    <div class="join">
+                        <a href="#" >Join Us</a>
+                    </div>
+                    
+                    
+                </div>
+            
+            </div>
+            
+        </footer>
+            <div class="last">
+                <p>Copyright &copy; 2016</p>
+            </div>
+</body>
+</html>

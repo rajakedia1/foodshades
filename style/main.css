@@ -10,6 +10,10 @@ header {
   color: white;
   z-index: 1000;
   width: auto;
+  box-shadow: 0px 0px 20px #f70808;
+}
+header .flips {
+  display: none;
 }
 header .title {
   font-size: 30px;
@@ -25,34 +29,103 @@ header .title img {
 header .title b {
   float: left;
 }
-header nav {
+header nav .mob {
+  display: none;
+}
+header nav .lap {
   display: block;
   float: right;
   color: white;
   line-height: 80px;
   font-size: 18px;
 }
-header nav ul {
+header nav .lap ul {
   list-style: none;
   padding-right: 20px;
 }
-header nav ul li {
+header nav .lap ul li {
   text-decoration: none;
   display: inline-block;
   float: left;
   padding: 0px 10px;
 }
-header nav ul li a {
+header nav .lap ul li a {
   cursor: pointer;
   text-decoration: none;
   color: white;
   transition: all 0.2s ease-in-out;
 }
-header nav ul li a:hover {
+header nav .lap ul li a:hover {
   transition: all 0.2s ease-in-out;
   color: #7ab3f5;
 }
 
+@media all and (max-width: 650px) {
+  header .flips {
+    display: block;
+  }
+  header .title {
+    width: 100%;
+    padding: 0;
+  }
+  header nav .lap {
+    display: none;
+  }
+  header nav .flips {
+    background-color: none;
+    color: none;
+    cursor: pointer;
+    padding: 0px;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: 0.2s;
+    margin: 20px 10px;
+  }
+  header nav .flips img {
+    width: 100%;
+    height: 40px;
+    display: block;
+  }
+  header nav .mob {
+    display: block;
+    width: 100%;
+    float: left;
+    z-index: 10020;
+    background: black;
+  }
+  header nav .mob ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  header nav .mob ul li {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    float: left;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    background: black;
+    text-align: center;
+  }
+  header nav .mob ul li a {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s ease-in-out;
+  }
+  header nav .mob ul li a:hover {
+    transition: all 0.2s ease-in-out;
+    color: #7ab3f5;
+  }
+}
 .top {
   width: 100%;
   display: block;
@@ -62,6 +135,7 @@ header nav ul li a:hover {
   width: 50%;
   display: block;
   float: left;
+  box-shadow: 0px 0px 20px black;
 }
 .top .right {
   width: 50%;
@@ -69,6 +143,7 @@ header nav ul li a:hover {
   display: block;
   float: left;
   height: 320px;
+  box-shadow: 0px 0px 20px black;
   background-image: url(../img/1.jpg);
   margin-bottom: 30px;
 }
@@ -330,9 +405,10 @@ footer .join a:hover {
 .wrapper .container .cart {
   float: left;
   width: 400px;
-  background: white;
+  background: green;
   display: block;
   margin-top: 20px;
+  z-index: 10;
 }
 .wrapper .container .cart .title {
   background: #6d44f7;
@@ -356,7 +432,7 @@ footer .join a:hover {
   vertical-align: middle;
 }
 .wrapper .container .cart .product {
-  background: #fcf3f5;
+  background: #fcddff;
   padding: 10px;
   display: block;
   float: left;
@@ -417,6 +493,23 @@ footer .join a:hover {
   color: crimson;
 }
 
+@media all and (max-width: 1000px) {
+  .wrapper .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+@media all and (max-width: 900px) {
+  .wrapper .container {
+    width: 90%;
+    margin: 0 5%;
+  }
+  .wrapper .container .left {
+    width: 100%;
+    margin: 0px auto;
+    padding: 0;
+  }
+}
 table {
   padding: 0;
   margin: 0;

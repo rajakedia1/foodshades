@@ -318,6 +318,12 @@ footer .join a:hover {
   color: #4b4bfc;
 }
 
+@media all and (max-width: 900px) {
+  .tab {
+    text-align: left;
+    padding-left: 20px;
+  }
+}
 .wrapper {
   width: 100%;
   display: block;
@@ -508,6 +514,59 @@ footer .join a:hover {
     width: 100%;
     margin: 0px auto;
     padding: 0;
+  }
+}
+@media all and (max-width: 500px) {
+  .wrapper .container .left ul li {
+    width: 100%;
+    margin-top: 10px;
+    display: block;
+    float: left;
+  }
+  .wrapper .container .left ul li .im {
+    width: 60px;
+    height: 60px;
+    float: left;
+    padding-right: 20px;
+    display: block;
+  }
+  .wrapper .container .left ul li .im img {
+    width: 60px;
+    height: 60px;
+  }
+  .wrapper .container .left ul li .im img:hover {
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  .wrapper .container .left ul li .detail {
+    float: left;
+    display: block;
+    margin-left: 0px;
+  }
+  .wrapper .container .left ul li .detail p {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+  }
+  .wrapper .container .left ul li .detail .quan {
+    padding-left: 20px;
+    width: 80px;
+  }
+  .wrapper .container .left ul li .detail .add {
+    display: block;
+    background-color: #43acec;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    margin: 2px 0px 0px;
+    width: 100px;
+  }
+  .wrapper .container .left ul li .detail .add:hover {
+    background-color: #2088c7;
+    cursor: pointer;
   }
 }
 table {

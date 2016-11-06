@@ -1,8 +1,10 @@
+
+
 <!doctype html>
 <html>
 <head>
 <meta charset=utf-8>
-<title>Raja Kedia</title>
+<title>FoodShades | Home</title>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <link rel=stylesheet href=style/accor.css type=text/css>
 <link rel=stylesheet href=style/main.css type=text/css>
@@ -13,18 +15,10 @@
 <script type=text/javascript src=js/jquery.cycle.all.js></script>
 <script type=text/javascript src=js/slider.js></script>
     
-<script>$(document).ready(function(){$("a").on("click",function(d){if(this.hash!==""){d.preventDefault();var c=this.hash;$("html, body").animate({scrollTop:$(c).offset().top},900,function(){})}})});
-    
-$(document).ready(function(){
-    $("#flip").click(function(){
-        $("#loginbox").slideToggle("fast")
-    })
-});
-    
-$(document).ready(function(){$("#flip2").click(function(){$("#loginbox").fadeToggle("fast")})});function chooseusername(){var e=document.getElementById("mine").value;var a=document.getElementById("email").value;var c=document.getElementById("sub").value;var d=document.getElementById("msg").value;if(d!=""){var b=new XMLHttpRequest();b.onreadystatechange=function(){if(b.readyState==4&&b.status==200){document.getElementById("state").innerHTML="Mail sent!"}};document.getElementById("state").innerHTML="Sending..";b.open("POST","sendmail.php?ch=1",true);b.setRequestHeader("Content-type","application/x-www-form-urlencoded");b.send("mine="+e+"&email="+a+"&subject="+c+"&msg="+d)}};</script>
+<script>$(document).ready(function(){$("a").on("click",function(d){if(this.hash!==""){d.preventDefault();var c=this.hash;$("html, body").animate({scrollTop:$(c).offset().top},900,function(){})}})});$(document).ready(function(){$("#flip").click(function(){$("#loginbox").slideToggle("fast")})});$(document).ready(function(){$("#flip2").click(function(){$("#loginbox").fadeToggle("fast")})});function chooseusername(){var e=document.getElementById("mine").value;var a=document.getElementById("email").value;var c=document.getElementById("sub").value;var d=document.getElementById("msg").value;if(d!=""){var b=new XMLHttpRequest();b.onreadystatechange=function(){if(b.readyState==4&&b.status==200){document.getElementById("state").innerHTML="Mail sent!"}};document.getElementById("state").innerHTML="Sending..";b.open("POST","sendmail.php?ch=1",true);b.setRequestHeader("Content-type","application/x-www-form-urlencoded");b.send("mine="+e+"&email="+a+"&subject="+c+"&msg="+d)}};</script>
     
 </head>
-<body>
+<body onload="cart()">
     <header>
     
         <div class="title"><img src="img/logo.png" width="50px" height="50px" style="padding:15px;"/><b>FoodShades</b>
@@ -52,10 +46,79 @@ $(document).ready(function(){$("#flip2").click(function(){$("#loginbox").fadeTog
             </div>
         </nav>
         
-    </header>
-    <div style="clear:both;"></div>
+    </header><div style="clear:both;"></div>
+<script >
+function additem(id){
+    var qx = "quan"+id;
+var ad = "add"+id
+    var quan = document.getElementById(qx).value;
+    var output = "<ul>";
+    if(qx!=""){
+		
+		var xmlhttp = new XMLHttpRequest();
+		
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                var response = xmlhttp.responseText;
+                
+                document.getElementById("carts").innerHTML = response;
+document.getElementById(ad).value= "Add";
+
+            }
+		}
+		document.getElementById(ad).value= "Wait";
+		xmlhttp.open("POST","updatecart.php?ch=1&pid=" + id + "&quant=" + quan, true);
+		//xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttp.send();
+		
+	}
+}
+function deleteitem(id){
+    var qx = id;
+    var output = "<ul>";
+    if(qx>=0){
+		
+		var xmlhttp = new XMLHttpRequest();
+		
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                var response = xmlhttp.responseText;
+                
+                cart();
+
+            }
+		}
+		xmlhttp.open("GET","updatecart.php?ch=3&pid=" + id, true);
+		//xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttp.send();
+		
+	}
+}
+function cart(){
+    var output = "<ul>";
+    var qx = 1
+    if(qx!=""){
+		
+		var xmlhttp = new XMLHttpRequest();
+		
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                var response = xmlhttp.responseText;
+                
+                document.getElementById("carts").innerHTML = response;
+
+            }
+		}
+		xmlhttp.open("GET","updatecart.php?ch=2", true);
+		//xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttp.send();
+		
+	}
+}
+</script>
+<div id="cityx"></div>
     <div class="tab">
-    <div>Station, Bokaro <span><a href="#">Change Location</a></span></div>
+    <div>Hirapur, Dhanbad <span><a href="change.php">Change Location</a></span></div>
     </div>
     <div style="clear:both;"></div>
     <div class="wrapper">
@@ -63,72 +126,143 @@ $(document).ready(function(){$("#flip2").click(function(){$("#loginbox").fadeTog
             <div class="left">
                 <div class="box">
                     <img src="slider/2.jpg" class="imm">
-                    <button class="accordion"></b>Veg ki thali</button>
+                    <button class="accordion"></b>Chinese</button>
                     <div class="panel">
-                        <ul>
-                            <li>
-                                <div class="im"><img src="site/1.jpg"></div>
+                        <ul><li>
+                                <div class="im"><img src="inventory_images/1.jpg" alt="Tandoori Aloo"></div>
                                 <div class="detail">
-                                    <b>Hakka Nodules</b><br><b>Rs </b> 35
-                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quantity" placeholder="Quantity" />
+                                    <b>Tandoori Aloo</b><br><b>Rs </b> 140
+									<input type="hidden" name="pid" id="pid" value="119"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan119" placeholder="Quantity" value="1"/>
                                     <br>
-                                    <input type="submit" class="add" id="add" value="Add"/>
+                                    <input type="submit" class="add" id="add119" onclick="additem(119)" value="Add"/>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="im"><img src="site/2.jpg"></div>
+                            </li><li>
+                                <div class="im"><img src="inventory_images/2.jpg" alt="Dilli Ka Tandoori Chicken (Full/Half)"></div>
                                 <div class="detail">
-                                    <b>Chowmein</b><br><b>Rs </b> 45
-                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quantity" placeholder="Quantity" />
+                                    <b>Dilli Ka Tandoori Chicken (Full/Half)</b><br><b>Rs </b> 370/220
+									<input type="hidden" name="pid" id="pid" value="124"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan124" placeholder="Quantity" value="1"/>
                                     <br>
-                                    <input type="submit" class="add" id="add" value="Add"/>
+                                    <input type="submit" class="add" id="add124" onclick="additem(124)" value="Add"/>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="im"><img src="site/3.jpg"></div>
+                            </li><li>
+                                <div class="im"><img src="inventory_images/3.jpg" alt="Chicken Reshmi Kebab"></div>
                                 <div class="detail">
-                                    <b>Parantha</b><br><b>Rs </b> 55
-                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quantity" placeholder="Quantity" />
+                                    <b>Chicken Reshmi Kebab</b><br><b>Rs </b> 240
+									<input type="hidden" name="pid" id="pid" value="126"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan126" placeholder="Quantity" value="1"/>
                                     <br>
-                                    <input type="submit" class="add" id="add" value="Add"/>
+                                    <input type="submit" class="add" id="add126" onclick="additem(126)" value="Add"/>
                                 </div>
-                            </li>
-                        </ul>
-                    </div>
-                
-                    <button class="accordion"></b>Non-Veg ki thali</button>
+                            </li><li>
+                                <div class="im"><img src="inventory_images/4.jpg" alt="Sukhe Dhaniya Aur Murgh Ki Seekh"></div>
+                                <div class="detail">
+                                    <b>Sukhe Dhaniya Aur Murgh Ki Seekh</b><br><b>Rs </b> 250
+									<input type="hidden" name="pid" id="pid" value="130"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan130" placeholder="Quantity" value="1"/>
+                                    <br>
+                                    <input type="submit" class="add" id="add130" onclick="additem(130)" value="Add"/>
+                                </div>
+                            </li><li>
+                                <div class="im"><img src="inventory_images/5.jpg" alt="Panjab Di Daal Makhani"></div>
+                                <div class="detail">
+                                    <b>Panjab Di Daal Makhani</b><br><b>Rs </b> 100
+									<input type="hidden" name="pid" id="pid" value="135"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan135" placeholder="Quantity" value="1"/>
+                                    <br>
+                                    <input type="submit" class="add" id="add135" onclick="additem(135)" value="Add"/>
+                                </div>
+                            </li><li>
+                                <div class="im"><img src="inventory_images/1.jpg" alt="Peeli Dal Tadka"></div>
+                                <div class="detail">
+                                    <b>Peeli Dal Tadka</b><br><b>Rs </b> 80
+									<input type="hidden" name="pid" id="pid" value="138"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan138" placeholder="Quantity" value="1"/>
+                                    <br>
+                                    <input type="submit" class="add" id="add138" onclick="additem(138)" value="Add"/>
+                                </div>
+                            </li><li>
+                                <div class="im"><img src="inventory_images/2.jpg" alt="RDB Daal Butter Tadka"></div>
+                                <div class="detail">
+                                    <b>RDB Daal Butter Tadka</b><br><b>Rs </b> 100
+									<input type="hidden" name="pid" id="pid" value="142"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan142" placeholder="Quantity" value="1"/>
+                                    <br>
+                                    <input type="submit" class="add" id="add142" onclick="additem(142)" value="Add"/>
+                                </div>
+                            </li><li>
+                                <div class="im"><img src="inventory_images/4.jpg" alt="Egg Tadka"></div>
+                                <div class="detail">
+                                    <b>Egg Tadka</b><br><b>Rs </b> 90
+									<input type="hidden" name="pid" id="pid" value="144"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan144" placeholder="Quantity" value="1"/>
+                                    <br>
+                                    <input type="submit" class="add" id="add144" onclick="additem(144)" value="Add"/>
+                                </div>
+                            </li></ul></div><button class="accordion"></b>Veg</button>
                     <div class="panel">
-                        <ul>
-                            <li>
-                                <div class="im"><img src="site/1.jpg"></div>
+                        <ul><li>
+                                <div class="im"><img src="inventory_images/5.jpg" alt="Aloo Gobhi"></div>
                                 <div class="detail">
-                                    <b>Hakka Nodules</b><br><b>Rs </b> 35
-                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quantity" placeholder="Quantity" />
+                                    <b>Aloo Gobhi</b><br><b>Rs </b> 80
+									<input type="hidden" name="pid" id="pid" value="9"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan9" placeholder="Quantity" value="1"/>
                                     <br>
-                                    <input type="submit" class="add" id="add" value="Add"/>
+                                    <input type="submit" class="add" id="add9" onclick="additem(9)" value="Add"/>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="im"><img src="site/2.jpg"></div>
+                            </li><li>
+                                <div class="im"><img src="inventory_images/1.jpg" alt="Veg Handi"></div>
                                 <div class="detail">
-                                    <b>Chowmein</b><br><b>Rs </b> 45
-                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quantity" placeholder="Quantity" />
+                                    <b>Veg Handi</b><br><b>Rs </b> 120
+									<input type="hidden" name="pid" id="pid" value="10"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan10" placeholder="Quantity" value="1"/>
                                     <br>
-                                    <input type="submit" class="add" id="add" value="Add"/>
+                                    <input type="submit" class="add" id="add10" onclick="additem(10)" value="Add"/>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="im"><img src="site/3.jpg"></div>
+                            </li><li>
+                                <div class="im"><img src="inventory_images/3.jpg" alt="Chana Masala"></div>
                                 <div class="detail">
-                                    <b>Parantha</b><br><b>Rs </b> 55
-                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quantity" placeholder="Quantity" />
+                                    <b>Chana Masala</b><br><b>Rs </b> 80
+									<input type="hidden" name="pid" id="pid" value="7"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan7" placeholder="Quantity" value="1"/>
                                     <br>
-                                    <input type="submit" class="add" id="add" value="Add"/>
+                                    <input type="submit" class="add" id="add7" onclick="additem(7)" value="Add"/>
                                 </div>
-                            </li>
-                        </ul>
-                    </div>
-
+                            </li></ul></div>
+            <button class="accordion"></b>Non-Veg</button>
+                    <div class="panel">
+                        <ul><li>
+                                <div class="im"><img src="inventory_images/4.jpg" alt="Chicken Curry(4 Piece)"></div>
+                                <div class="detail">
+                                    <b>Chicken Curry(4 Piece)</b><br><b>Rs </b> 120
+									<input type="hidden" name="pid" id="pid" value="13"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan13" placeholder="Quantity" value="1"/>
+                                    <br>
+                                    <input type="submit" class="add" id="add13" onclick="additem(13)" value="Add"/>
+                                </div>
+                            </li><li>
+                                <div class="im"><img src="inventory_images/2.jpg" alt="Chicken Do Pyaza(4 Piece)"></div>
+                                <div class="detail">
+                                    <b>Chicken Do Pyaza(4 Piece)</b><br><b>Rs </b> 130
+									<input type="hidden" name="pid" id="pid" value="14"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan14" placeholder="Quantity" value="1"/>
+                                    <br>
+                                    <input type="submit" class="add" id="add14" onclick="additem(14)" value="Add"/>
+                                </div>
+                            </li></ul></div>
+                    <button class="accordion"></b>Tandoor</button>
+                    <div class="panel">
+                        <ul><li>
+                                <div class="im"><img src="inventory_images/1.jpg" alt="keema kulcha"></div>
+                                <div class="detail">
+                                    <b>keema kulcha</b><br><b>Rs </b> 60
+									<input type="hidden" name="pid" id="pid" value="102"/>
+                                    <input class="quan" name="quantity" type="number" min="1" max="1000" id="quan102" placeholder="Quantity" value="1"/>
+                                    <br>
+                                    <input type="submit" class="add" id="add102" onclick="additem(102)" value="Add"/>
+                                </div>
+                            </li></ul></div>
                     <script>
                           var acc = document.getElementsByClassName("accordion");
                           var i;
@@ -147,30 +281,61 @@ $(document).ready(function(){$("#flip2").click(function(){$("#loginbox").fadeTog
                     <i class="fa fa-shopping-cart fa-stack-2x" style="color:white;"> <b>Your Cart</b></i>
                 </div> 
                 <div class="product">
-                    <ul class="head">
+                   <div id="carts">  <ul class="head">
                         <li class="qty">QTY</li>
                         <li class="name">ITEM</li>
                         <li class="price">RATE</li>
                         <li class="del">DELETE</li>
-                    </ul><hr>
-                    <ul>
-                        <li class="qty">3</li>
-                        <li class="name">Hakka Nodules</li>
-                        <li class="price">55</li>
-                        <li class="del"><a href="#"><i class="fa fa-window-close" style="color:red;font-size:18px;"></i></a></li>
-                    </ul>
-                    <ul>
+                    </ul><hr><ul>
+                        <li class="qty">1</li>
+                        <li class="name">Veg Handi</li>
+                        <li class="price">120</li>
+                        <li class="del"><button id="rem"><i class="fa fa-window-close" onclick="deleteitem(0)" style="font-size:18px;"></i></button></li>
+                    </ul><ul>
+                        <li class="qty">1</li>
+                        <li class="name">Chicken Curry(4 Piece)</li>
+                        <li class="price">120</li>
+                        <li class="del"><button id="rem"><i class="fa fa-window-close" onclick="deleteitem(1)" style="font-size:18px;"></i></button></li>
+                    </ul><ul>
                         <li class="qty">5</li>
-                        <li class="name">Sattu paratha</li>
-                        <li class="price">755</li>
-                        <li class="del"><a href="#"><i class="fa fa-window-close" style="color:red;font-size:18px;"></i></a></li>
-                    </ul>
+                        <li class="name">Panjabi Chicken Kali Mirch</li>
+                        <li class="price">1000</li>
+                        <li class="del"><button id="rem"><i class="fa fa-window-close" onclick="deleteitem(2)" style="font-size:18px;"></i></button></li>
+                    </ul><ul>
+                        <li class="qty">1</li>
+                        <li class="name">RDBD Chicken Bharta</li>
+                        <li class="price">160</li>
+                        <li class="del"><button id="rem"><i class="fa fa-window-close" onclick="deleteitem(3)" style="font-size:18px;"></i></button></li>
+                    </ul><br><hr><br><table    width="92%" class="table3" align="center" style="text-align:left;" >
+                        <tr class="table1">
+                            <td style="text-align:center;"><strong>TotalPrice:  Rs 1400 </strong></td>
+                        </tr>
+                        <tr class="table1">
+                            <td style="text-align:center;"><strong>Discount: 15%</strong></td>
+                        </tr>
+                        <tr class="table1">
+                            <td style="text-align:center;"><strong>Discount Amount:&nbsp;Rs 210</strong></td>
+                        </tr>
+                        <tr class="table1">
+                            <td style="text-align:center;"><strong>Delivery Charges:&nbsp;Rs 0</strong></td>
+                        </tr>
+                        <tr class="table1">
+                            <td style="border-bottom: #7AAE55 2px solid;text-align:center;"><strong>Grand Total:&nbsp;Rs 1190</strong></td>
+                        </tr>
+                        <tr class="table3">
+                            <td ><a href="index.php?cmd=emptycart">Empty Your Cart</a></td>
+
+                        </tr>
+                        <tr class="table3" >
+                            <td style="border-bottom: #7AAE55 2px solid;"><a href="order.php">Confirm your Order</a></td>
+                        </tr>
+                        </table><br></div><!-- cart output -->
                 </div>
             </div>
         </div>
     </div>
 <div style="clear:both"></div>
-    <footer >  <!-- footer starts -->
+     <footer >  <!-- footer starts -->
         
             
             <div class="row footer-stuff">

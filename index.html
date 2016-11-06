@@ -62,12 +62,12 @@ var ad = "add"+id
                 var response = xmlhttp.responseText;
                 
                 document.getElementById("carts").innerHTML = response;
-document.getElementById(ad).value= "Add";
+                document.getElementById(ad).value= "Add";
 
             }
 		}
 		document.getElementById(ad).value= "Wait";
-		xmlhttp.open("POST","updatecart.php?ch=1&pid=" + id + "&quant=" + quan, true);
+		xmlhttp.open("POST","xxxxxxxx.php?ch=1&pid=" + id + "&quant=" + quan, true);
 		//xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xmlhttp.send();
 		
@@ -88,7 +88,7 @@ function deleteitem(id){
 
             }
 		}
-		xmlhttp.open("GET","updatecart.php?ch=3&pid=" + id, true);
+		xmlhttp.open("GET","xxxxxxxx.php?ch=3&pid=" + id, true);
 		//xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xmlhttp.send();
 		
@@ -109,7 +109,7 @@ function cart(){
 
             }
 		}
-		xmlhttp.open("GET","updatecart.php?ch=2", true);
+		xmlhttp.open("GET","xxxxxxxx.php?ch=2", true);
 		//xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xmlhttp.send();
 		

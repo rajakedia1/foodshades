@@ -1,0 +1,16 @@
+.join {
+  width: 100%;
+  margin: auto;
+  display: block;
+  background: white;
+}
+.join .content {
+  width: 90%;
+  margin: 0px 5%;
+  display: block;
+}
+.join .content form {
+  margin: 0px auto;
+}
+
+/*# sourceMappingURL=join.css.map */

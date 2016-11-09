@@ -1,0 +1,157 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>FoodShades | Home</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet href=style/accor.css type=text/css>
+<link rel=stylesheet href=style/main.css type=text/css>
+<link rel=stylesheet href=style/slider.css type=text/css>
+<link rel=icon type=image/png href=img/logo.png>
+<link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css>
+<script src=js/jquery.js></script>
+<script type=text/javascript src=js/jquery.cycle.all.js></script>
+<script type=text/javascript src=js/slider.js></script>
+    
+<script>$(document).ready(function(){$("a").on("click",function(d){if(this.hash!==""){d.preventDefault();var c=this.hash;$("html, body").animate({scrollTop:$(c).offset().top},900,function(){})}})});$(document).ready(function(){$("#flip").click(function(){$("#loginbox").slideToggle("fast")})});$(document).ready(function(){$("#flip2").click(function(){$("#loginbox").fadeToggle("fast")})});function chooseusername(){var e=document.getElementById("mine").value;var a=document.getElementById("email").value;var c=document.getElementById("sub").value;var d=document.getElementById("msg").value;if(d!=""){var b=new XMLHttpRequest();b.onreadystatechange=function(){if(b.readyState==4&&b.status==200){document.getElementById("state").innerHTML="Mail sent!"}};document.getElementById("state").innerHTML="Sending..";b.open("POST","sendmail.php?ch=1",true);b.setRequestHeader("Content-type","application/x-www-form-urlencoded");b.send("mine="+e+"&email="+a+"&subject="+c+"&msg="+d)}};</script>
+    
+</head>
+<body onload="cart()">
+    
+    <header>
+    
+        <div class="title"><img src="img/logo.png" width="50px" height="50px" style="padding:15px;"/><b>FoodShades</b>
+        
+        </div>
+       
+        <nav>
+            <div class="lap">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Suggestion</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            </div>
+        </nav>
+        
+        <nav>
+            <button class="accordion flips" style="background: none;"><img src="img/menu_icon.png" /></button>
+            <div class="mob panel" style="opacity:1;overflow: hidden;padding: 0px;">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Suggestion</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            </div>
+        </nav>
+        
+    </header><div style="clear:both;"></div>  <!-- header ends  -->
+    
+    <div class="join">
+    
+        <div class="content">
+        
+            <form action="#" method="post">
+            
+                <input type="text" name="name" placeholder="Your Name"/>
+                
+                <input type="submit" name="submit" value="Submit"/>
+            
+            </form>
+        
+        </div>
+    
+    </div>
+     <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].onclick = function(){
+                this.classList.toggle("active");
+                this.nextElementSibling.classList.toggle("show");
+            }
+        }
+     </script>
+    <footer >  <!-- footer starts -->
+        
+            
+            <div class="row footer-stuff">
+            
+                <div class="columns ">
+                    
+                    <p style="text-align:left;margin:2%;text-weight:none;"><strong style="color:yellow;align:center;font-size:20px;">Note:</strong><br>
+                      > No delivery charges on order above Rs. 100.<br>
+                      > Rs. 20 will be charged on delivery below Rs.100.<br>
+                      > Cash on Delivery available.<br>
+                      > Get your order within 30 minutes.<br></p>
+	  
+                    
+                </div>
+                
+                <div class="columns ">
+                
+                    <strong style="text-align:center;color: #e82175;padding-bottom: 10px;display: block;">Other Links</strong>
+                    <ul>
+                        <li><a href="#">Ranchi</a></li>
+                        <li><a href="#">Local Sites</a></li>
+                        <li><a href="#">Queries</a></li>
+                        <li><a href="#">Others</a></li>
+                        
+                    </ul>
+                    
+                </div>
+                
+                <div class="columns ">
+                    
+                    <div class="set3" style="margin: auto;">
+            
+                        <b style="display:block;margin-bottom:10px; text-align: center;">Follow Us:</b>
+                      <div style="text-align: center;" class="menu2" >
+
+                        <a href="twitter.com"><span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x" style="color:#00C3FC;" ></i>
+                          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+
+                        <a href="facebook.com"><span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x" style="color:#345AA9;"></i>
+                          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+
+                        <a href="linkedin.com"><span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x" style="color:#0079B8;"></i>
+                          <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+
+                        <a href="google+.com"><span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x" style="color:#EC4D29;"></i>
+                          <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                      </div>
+                  </div>
+                    <br>
+                    <div class="join">
+                        <a href="#" >Join Us</a>
+                    </div>
+                    
+                    
+                </div>
+            
+            </div>
+            
+        </footer>
+            <div class="last">
+                <p>Copyright &copy; 2016</p>
+            </div>
+</body>
+</html>
+    
+    
+    
+    

@@ -1,16 +1,2 @@
-.join {
-  width: 100%;
-  margin: auto;
-  display: block;
-  background: white;
-}
-.join .content {
-  width: 90%;
-  margin: 0px 5%;
-  display: block;
-}
-.join .content form {
-  margin: 0px auto;
-}
-
+.joinx{width:100%;margin:auto;display:block;height:100px;float:left;background:#fff}.joinx .content{width:90%;margin:0px 5%;display:block}.joinx .content form{margin:0px auto;padding:3px}
 /*# sourceMappingURL=join.css.map */

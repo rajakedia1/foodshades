@@ -18,8 +18,10 @@ button.accordion.active, button.accordion:hover {
 
 div.panel {
     padding: 0 18px;
+    display: block;
     background-color: white;
     max-height: 0;
+    z-index: 10000;
     overflow-x: hidden;
     overflow-y: scroll;
     transition: 0.6s ease-in-out;

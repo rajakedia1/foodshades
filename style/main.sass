@@ -2,6 +2,8 @@
     margin: 0px
     font-family: calibri,arial, sans-serif
 header
+    .flips
+        display: none
     display: block
     height: 80px
     background-color: #0f0e0e
@@ -21,28 +23,92 @@ header
         b
             float: left
     nav
-        display: block
-        float: right
-        color: white
-        line-height: 80px
-        font-size: 18px
-        ul
-            list-style: none
-            padding-right: 20px
-            li
-                text-decoration: none
-                display: inline-block
-                float: left
-                padding: 0px 10px
-                a
-                    cursor: pointer
+        .mob
+            display: none
+        .lap
+            display: block
+            float: right
+            color: white
+            line-height: 80px
+            font-size: 18px
+            ul
+                list-style: none
+                padding-right: 20px
+                li
                     text-decoration: none
-                    color: white
-                    transition: all 0.2s ease-in-out
-                    &:hover
+                    display: inline-block
+                    float: left
+                    padding: 0px 10px
+                    a
+                        cursor: pointer
+                        text-decoration: none
+                        color: white
                         transition: all 0.2s ease-in-out
-                        color: #7ab3f5
+                        &:hover
+                            transition: all 0.2s ease-in-out
+                            color: #7ab3f5
+ 
                     
+@media all and (max-width: 650px)
+    header
+        .flips
+            display: block
+        .title
+            width: 100%
+            padding: 0
+        nav
+            .lap
+                display: none
+            .flips
+                background-color: none
+                color: none
+                cursor: pointer
+                padding: 0px
+                width: 50px
+                position: absolute
+                top: 0
+                right: 0
+                border: none
+                text-align: left
+                outline: none
+                transition: 0.2s
+                margin: 20px 10px
+                img
+                    width: 100%
+                    height: 40px
+                    display: block
+            .mob
+                display: block
+                width: 100%
+                float: left
+                z-index: 10020
+                background: black
+                ul
+                    list-style: none
+                    margin: 0
+                    padding: 0
+                    margin-bottom: 15px
+                    li
+                        text-decoration: none
+                        display: block
+                        width: 100%
+                        float: left
+                        display: block
+                        height: 40px
+                        line-height: 40px
+                        background: black
+                        text-align: center
+                        a
+                            cursor: pointer
+                            text-decoration: none
+                            color: white
+                            transition: all 0.2s ease-in-out
+                            &:hover
+                                transition: all 0.2s ease-in-out
+                                color: #7ab3f5
+ 
+// header ends
+    
 .top
     width: 100%
     display: block
@@ -199,6 +265,12 @@ footer
             &:hover
                 transition: all 0.2s ease-in-out
                 color: #4b4bfc
+
+@media all and (max-width: 900px)
+    .tab
+        text-align: left
+        padding-left: 20px
+            
 .wrapper
     width: 100%
     display: block
@@ -275,9 +347,10 @@ footer
         .cart
             float: left
             width: 400px
-            background: white
+            background: green
             display: block
             margin-top: 20px
+            z-index: 10
             .title
                 background: #6d44f7
                 height: 70px
@@ -297,7 +370,7 @@ footer
                         font-weight: 300
                         vertical-align: middle
             .product
-                background: #fcf3f5
+                background: #fcddff
                 padding: 10px
                 display: block
                 float: left
@@ -343,6 +416,75 @@ footer
                                     color: red
                                     &:hover
                                         color: crimson
+
+@media all and (max-width: 1000px)
+    .wrapper
+        .container
+            width: 100%
+            margin: 0 auto
+            
+            
+@media all and (max-width: 900px)
+    .wrapper
+        .container
+            width: 90%
+            margin: 0 5%
+            .left
+                width: 100%
+                margin: 0px auto
+                padding: 0
+                
+                
+                
+@media all and (max-width: 500px)
+    .wrapper
+        .container
+            .left
+                ul
+                    li
+                        width: 100%
+                        margin-top: 10px
+                        display: block
+                        float: left
+                        .im
+                            width: 60px
+                            height: 60px
+                            float: left
+                            padding-right: 20px
+                            display: block
+                            img
+                                width: 60px
+                                height: 60px
+                                &:hover
+                                    border: 1px solid black
+                                    cursor: pointer
+                        .detail
+                            
+                            float: left
+                            display: block
+                            margin-left: 0px
+                            p
+                                padding: 0
+                                margin: 0
+                                font-size: 18px
+                            .quan
+                                padding-left: 20px
+                                width: 80px
+                            .add
+                                display: block
+                                background-color: #43acec
+                                border: none
+                                color: #fff
+                                font-size: 14px
+                                padding: 2px
+                                border-radius: 2px
+                                -webkit-border-radius: 2px
+                                margin: 2px 0px 0px
+                                width: 100px
+                                &:hover
+                                    background-color: #2088c7
+                                    cursor: pointer
+                                    
 table
     padding: 0
     margin: 0
